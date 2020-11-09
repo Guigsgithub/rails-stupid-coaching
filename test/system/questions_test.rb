@@ -18,4 +18,12 @@ class QuestionsTest < ApplicationSystemTestCase
 
     assert_text "I don't care, get dressed and go to work!"
   end
+
+  test 'asking question yields a grumpy response from the coach' do
+    visit ask_url
+    fill_in 'ask', with: 'How are you?'
+    click_on 'Ask'
+
+    assert_text "Silly question, get dressed and go to work!"
+  end
 end
