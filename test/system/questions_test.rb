@@ -6,24 +6,36 @@ class QuestionsTest < ApplicationSystemTestCase
   #
   #   assert_selector "h1", text: "Questions"
   # end
+
   test 'visiting /ask renders the form' do
     visit ask_url
+    take_screenshot
     assert_selector 'p', text: 'Ask your coach anything'
+    take_screenshot
+    gem 'launchy'
   end
 
   test 'saying Hello yields a grumpy response from the coach' do
     visit ask_url
+    take_screenshot
     fill_in 'ask', with: 'Hello'
+    take_screenshot
     click_on 'Ask'
-
+    take_screenshot
     assert_text "I don't care, get dressed and go to work!"
+    take_screenshot
+    gem 'launchy'
   end
 
   test 'asking question yields a grumpy response from the coach' do
     visit ask_url
+    take_screenshot
     fill_in 'ask', with: 'How are you?'
+    take_screenshot
     click_on 'Ask'
-
+    take_screenshot
     assert_text "Silly question, get dressed and go to work!"
+    take_screenshot
+    gem 'launchy'
   end
 end
